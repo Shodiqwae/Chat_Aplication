@@ -29,7 +29,7 @@ class _StartChatPageState extends State<StartChatPage> {
     final roomName = _roomNameController.text;
     try {
       String profileID = supabase.auth.currentSession!.user.id;
-      await supabase.from('chat_rooms').insert(
+      await supabase.from('chat_room').insert(
         {
           'profile_id': profileID,
           'room_name': roomName,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_chat_app/pages/chat_page.dart';
 import 'package:my_chat_app/pages/login_page.dart';
 import 'package:my_chat_app/utils/constants.dart';
+import 'package:my_chat_app/pages/chat_room_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -40,7 +41,7 @@ class _RegisterPageState extends State<RegisterPage> {
       await supabase.auth.signUp(
           email: email, password: password, data: {'username': username});
       Navigator.of(context)
-          .pushAndRemoveUntil(ChatPage.route(), (route) => false);
+          .pushAndRemoveUntil(ChatRoomPage.route(), (route) => false);
     } on AuthException catch (error) {
       context.showErrorSnackBar(message: error.message);
     } catch (error) {

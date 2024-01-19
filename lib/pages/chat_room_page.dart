@@ -22,7 +22,7 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
   var chatRooms;
 
   Future<List<Map<String, dynamic>>> _getChatRoom() async {
-    chatRooms = supabase.from('chat_rooms').select().order('created_at');
+    chatRooms = supabase.from('chat_room').select().order('created_at');
     return chatRooms;
   }
 
